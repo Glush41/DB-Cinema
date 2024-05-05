@@ -13,8 +13,8 @@ CREATE TABLE Hall_Row(
 	id INT PRIMARY KEY NOT NULL,
 	number_row INT NOT NULL,
 	capacity INT NOT NULL,
-	date_start TIME NOT NULL, 
-	date_end TIME NOT NULL,
+	date_start DATE NOT NULL, 
+	date_end DATE NOT NULL,
 	hall_id BIGINT NOT NULL,
 	CONSTRAINT hall_row_fk FOREIGN KEY (hall_id) REFERENCES hall (id),
 	CHECK (date_start <= date_end)
