@@ -2,7 +2,7 @@
 select avg(price) from tickets 
 where tickets.price > 100;
 
--- 2) Узнать среднюю вместимость ряда, где номер ряда < 5
+-- 2) Узнать среднее число вместимости в версионной таблице ряда, где номер ряда < 5
 select avg(capacity) from hall_row 
 where hall_row.number_row < 5;
 
@@ -11,7 +11,7 @@ select * from hall_row
 order by date_start
 limit 1;
 
--- 4) Данные из версионной таблицы, где длительность занятия ряда < 30 дней
+-- 4) Данные из версионной таблицы, где длительность актуальности информации занятия ряда < 30 дней
 select * from hall_row
 where date_end - date_start < 30
 limit 5;
@@ -26,7 +26,7 @@ select distinct hall_name from hall
 JOIN screening on hall_id = screening.hall_id
 where screening.film_id = 1;
 
--- 7) Узнать количество мест самых заполненых рядов за всё время
+-- 7) Узнать вместимость самых заполненых рядов за всё время в версионной таблице
 select capacity from hall_row 
 order by capacity desc
 limit 15;
