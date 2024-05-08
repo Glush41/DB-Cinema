@@ -45,3 +45,9 @@ where (screening.time_film < '3:00:00') and (description is not null);
 SELECT row_ticket, AVG(price) as avg_price FROM tickets
 GROUP BY row_ticket
 HAVING COUNT(*) >= 5;
+
+-- 11) Вывод номеров рядов, где вместимость ряда в период времени в версионной таблице была больше чем среднее значение за всё время в этой таблице.
+select distinct number_row 
+from hall_row
+where capacity > (select avg(capacity) 
+				          from hall_row);
